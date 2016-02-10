@@ -53,12 +53,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'core.middleware.AddDmUserMiddleware',
-    # 'core.middleware.RedirectMiddleware',
-    # 'core.middleware.RedirectMapMiddleware'
-
-    # 'core.middleware.CorsMiddleware',
-    # 'core.middleware.LoginMiddleware',
 )
 
 CRISPY_TEMPLATE_PACK = 'uni_form' #TODO посмотоянно
@@ -66,6 +60,8 @@ CRISPY_TEMPLATE_PACK = 'uni_form' #TODO посмотоянно
 AUTH_USER_MODEL = 'core.User'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 MEDIA_URL = '/media/'
 
 ROOT_URLCONF = 'project.urls'
