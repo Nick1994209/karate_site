@@ -62,7 +62,7 @@ AUTH_USER_MODEL = 'core.User'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    #os.path.join(BASE_DIR, 'static'),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -71,7 +71,7 @@ MEDIA_URL = '/media/'
 
 ROOT_URLCONF = 'project.urls'
 
-WSGI_APPLICATION = 'project.wsgi.application'
+# WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
