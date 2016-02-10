@@ -60,7 +60,7 @@ CRISPY_TEMPLATE_PACK = 'uni_form' #TODO посмотоянно
 AUTH_USER_MODEL = 'core.User'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/home/nick1994209/karate_site/static/'
 
 MEDIA_URL = '/media/'
 
