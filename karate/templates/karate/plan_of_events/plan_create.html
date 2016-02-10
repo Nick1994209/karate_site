@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+    {{ block.super }}
+    <br>
+    {% if edited %}
+        <a class='btn-danger' href="{% url 'plan_of_events_delete' object.pk %}">Удалить статью</a>
+    {% endif %}
+{% endblock %}

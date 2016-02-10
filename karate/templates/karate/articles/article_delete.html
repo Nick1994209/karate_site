@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block full_content %}
+    {% if not errors %}
+        <div class="alert alert-block">
+            <h4>Внимание!</h4>
+            {{ message }}
+        </div>
+
+        <form class="form-horizontal" method="POST">{% csrf_token %}
+            {% block form_content %}{% endblock %}
+
+            <a class="btn" href="{{ cancel_url|default:'..'}}">
+                <i class="icon icon-arrow-left"></i>
+                Отмена
+            </a>
+
+            <button type="submit" class="btn btn-danger" name="submit">
+                <i class="icon icon-trash"></i>
+                Удалить
+            </button>
+        </form>
+    {% endif %}
+{% endblock %}

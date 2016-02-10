@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+
+{#{% block full_content %}#}
+{#    <h2 class="text-info">Информация по пользователю</h2>#}
+{#    {{ block.super }}#}
+{#{% endblock %}#}
+
+{% block content %}
+<h2 class="text-info">Информация по пользователю</h2>
+     {% if user.avatar %}
+
+            <img class="center-block " align="left" src="{{ user.avatar.url }}" height="150" width="100">
+
+        {% else %}
+
+                <img class="center-block" src="" height="150" width="100">
+
+    {% endif %}
+    <table class="table active">
+
+    <tr>
+        <th >Логин</th> <td>{{ user.username }}</td>
+    </tr>
+
+    <tr>
+        <th>Дата создания</th> <td>{{ user.date_joined }}</td>
+    </tr>
+    <tr>
+        <th>Дата последнего входа</th> <td>{{ user.dm }}</td>
+    </tr>
+
+
+    {% if user.f_name %}
+    <tr>
+        <th>Имя</th> <td>{{ user.f_name }}</td>
+    </tr>
+    {% endif %}
+
+    {% if user.l_name %}
+    <tr>
+        <th>Фамилия</th> <td>{{ user.l_name }}</td>
+    </tr>
+    {% endif %}
+
+    </table>
+    <a href="{% url 'filling_user_data' %}"> Изменение информации </a>
+
+     <div class="modal fade" id="modal_enter_group" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Войти в группу</h3>
+                </div>
+                <div class="modal-body">
+                       <form action="{{ request.path }}" method="post">
+                           {% csrf_token %}
+                            {{ group_form.as_p }}
+                            <input class='btn btn-info' type="submit" value="Войти"/>
+                        </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть окно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

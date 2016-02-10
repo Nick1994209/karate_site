@@ -1,0 +1,11 @@
+*.pyc
+build/
+dist/
+*.egg-info/
+.idea/
+image-files/
+project/settings/dev.py
+project/media/*
+image-files/*
+core/migrations/*
+media/*

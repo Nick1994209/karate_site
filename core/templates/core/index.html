@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+
+{% block full_content %}
+    <div class="row">
+        <div class="jumbotron">
+            <h1 class="text-primary text-center" id="karate_title"><kbd>Karate Серпухов Shotocan</kbd></h1>
+            <h2 class="text-primary text-center"> Главная информация </h2>
+        </div>
+    </div>
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+
+        <div class="col-xs-6">
+
+            <img src="{{ STATIC_URL }}core/images/katenev.jpg" width="100%">
+
+        </div>
+        <div class="col-xs-6">
+            <blockquote>
+
+                -"Открытое лицо приятно для удара"-"Не закрывай глаза-пропустишь самое интересное"
+                <footer>Умные советы</footer>
+            </blockquote>
+
+        </div>
+        {#        <div class="col-xs-6">#}
+        {#             <img class="img-responsive" src="http://placehold.it/600x300">#}
+        {#        </div>#}
+    </div>
+    <hr/>
+    <div class="row">
+        {#        <div class="col-xs-3"><img class="img-responsive" src="{{ STATIC_URL }}core/images/karta_pinguins.jpg"></div>#}
+        {#         <div class="col-xs-3"><img class="img-responsive" src="http://cs314217.vk.me/v314217044/616/JclLsTEvoEY.jpg"></div>#}
+
+
+    </div>
+    <hr/>
+
+{% endblock %}
+
+{% block sidebar %}
+    <div class="row">
+        <div>
+            <a href="{% url 'plan_of_events_list' %}"><h4 class="text-info">Ближайшее мероприятие:</h4></a>
+            {% if events %}
+                {{ events.name }}
+            {% else %}
+                На ближайшее время не запланировано
+            {% endif %}
+            <hr>
+
+            {% if last_article %}
+                <a href="{% url 'article_list' %}"><h4 class="text-warning">Наша последняя статья</h4></a>
+                <a href="{% url 'article-detail' last_article.pk %}">{{ last_article.name }}</a>
+            {% endif %}
+
+            <h4 class="text-danger"> Последние события: </h4>
+            Что - нибудь из событий
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block table %}
+    <br>
+    {% if user.is_authenticated %}
+        <a class="btn-info" href="{% url 'plan_of_events_create' %}">Добавить мероприятие</a>
+        <br>
+    {% endif %}
+
+    <tr class="info">
+        <th>Дата</th>
+        <th>Название</th>
+        <th>Место</th>
+                <td>Точное время начала</td>
+    </tr>
+    {% for plan in object_list %}
+
+        <tr>
+            <td>{{ plan.date }}</td>
+            <td>{% if user.is_authenticated %}
+                <a href="{% url 'plan_of_events_update' plan.pk %}">{{ plan.name }}</a>
+            {% else %}
+                {{ plan.name }}
+            {% endif %}
+            </td>
+            <td>{{ plan.place }}</td>
+                        <td>{{ plan.time }}</td>
+        </tr>
+        <br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,230 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title|default:'' }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load staticfiles %}
+
+    <link href="{{ STATIC_URL }}core/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ STATIC_URL }}core/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">#}
+
+    <link href="{{ STATIC_URL }}core/navbar/css/menu.css" rel="stylesheet">
+
+<style>
+    .drop-shadow {
+        -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    }
+    .container.drop-shadow {
+        padding-left:0;
+        padding-right:0;
+    }
+</style>
+    {% block head %}{% endblock head %}
+
+</head>
+<body>
+
+{##}
+{##}
+{#<div class="navbar navbar-default" role="navigation">#}
+{#    <div class="container-fluid">#}
+{#        <div class="navbar-collapse collapse">#}
+{#            <ul class="nav navbar-nav">#}
+{#                <li>#}
+{#                    <a href="{% url 'core.views.index' %}">Главная</a>#}
+{#                </li>#}
+{##}
+{#                {% if user.is_authenticated %}#}
+{#                <li class="dropdown">#}<
+{#                    <a class="dropdown-toggle" data-toggle="dropdown">Статьи <b class="caret"></b></a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li><a href="{% url 'article_list' %}">Посмотреть все статьи</a></li>#}
+{#                        <li><a href="{% url 'article_create' %}">Создать статью</a></li>#}
+{#                        <li class="divider"></li>#}
+{#                        <li class="dropdown-header">редактирование</li>#}
+{#                        <li><a href="#">Переход</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                    {% else %}#}
+{#                    <li><a href="{% url 'article_list' %}">Статьи</a> </li>#}
+{##}
+{#                {% endif %}#}
+{##}
+{#            </ul>#}
+{#            <ul class="nav navbar-nav navbar-right">#}
+{#                {% if user.is_authenticated %}#}
+{#                    <li><a href="{% url 'user_detail' %}">{{ user.username }}</a></li>#}
+{#                    {% if user.avatar %}#}
+{#                        <li><img class="center-block" src="{{ user.avatar.url }}" height="38" width="38"></li>#}
+{#                    {% endif %}#}
+{#                    <li><a href="{% url 'logout' %}">Выход</a> </li>#}
+{#                {% else %}#}
+{#                    <li><a href="{% url 'auth2.views.login' %}">Вход</a></li>#}
+{#                    <li><a href="{% url 'auth2.views.register' %}">Регистрация</a></li>#}
+{#                {% endif %}#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+
+
+
+
+	<!-- start header -->
+<div class="container">
+<div class="row>">
+	<header>
+		<div style="background:#08298A; color:#FFF;
+    font-weight:bold; border-radius: 40px 10px" >
+				<div class="navbar navbar-static-top">
+					<div class="navigation">
+                    <div class="col-lg-1">
+                    <img src="{{ STATIC_URL }}core/images/karate-logo.svg" style="width: 70%">
+                    </div>
+                    <div class="col-lg-11 right">
+						<nav>
+
+						<ul class="nav topnav bold">
+							<li class="dropdown active">
+							<a href="{% url 'index' %}"><h4>Главная</h4> </a>
+
+							</li>
+
+                        {% if user.is_authenticated %}
+							<li class="dropdown active">
+							<a href="#"><h4>Статьи <i class="icon-angle-down"></i></h4> </a>
+							<ul class="dropdown-menu bold">
+								<li><a href="{% url 'article_list' %}">Посмотреть все статьи</a></li>
+                            <li><a href="{% url 'article_create' %}">Создать статью</a></li>
+                                <li><a href="http://www.freshdesignweb.com/3-level-responsive-drop-down-navigation-menu-jquery-css3.html">404</a></li>
+							</ul>
+							</li>
+                        {% else %}
+                            <li class="dropdown active">
+							<a href="{% url 'article_list' %}"><h4>Статьи</h4> </a>
+                            </li>
+                        {% endif %}
+							<li class="dropdown active">
+							<a href="#"><h4>Мультмедиа <i class="icon-angle-down"></i></h4> </a>
+							<ul style="display: none;" class="dropdown-menu bold">
+								<li><a href="{% url 'photo_album_list' %}">Альбомы</a></li>
+								<li><a href="">Видео #будет только на ютубе</a></li>
+							</ul>
+							</li>
+							<li class="dropdown active">
+							<a href="{% url 'plan_of_events_list' %}"><h4>Мероприятия</h4> </a>
+{#							<ul class="dropdown-menu bold">#}
+{#								<li><a href="#">sdf</a></li>#}
+{#							</ul>#}
+							</li>
+                            <li class="dropdown active">
+							<a href={% url 'additionally' %}><h4> Дополнительно </h4> </a>
+                            </li>
+
+                                {% if user.is_authenticated %}
+                                    <li class="dropdown active"><a href="{% url 'user_detail' %}"><h4>{{ user.username }}</h4></a></li>
+                                    {% if user.avatar %}
+                                        <li><img class="center-block" src="{{ user.avatar.url }}" height="5%" ></li>
+                                    {% endif %}
+                                    <li class="dropdown active"><a href="{% url 'logout' %}"><h4>Выход</h4></a> </li>
+                                {% else %}
+                                    <li class="dropdown active"><a href="{% url 'auth2.views.login' %}"><h4>Вход</h4></a></li>
+                                    <li class="dropdown active"><a href="{% url 'auth2.views.register' %}"><h4>Регистрация</h4></a></li>
+                                {% endif %}
+
+
+						</ul>
+						</nav>
+                    </div>
+					</div>
+					<!-- end navigation -->
+				</div>
+			</div>
+	</header>
+</div>
+</div>
+
+<div class="container drop-shadow">
+<div class="container">
+{% block full_content %}
+
+    <div class="col-lg-12">
+    {% block full_screan %} {% endblock %}
+     <table class="table  table-bordered table-hover">
+            {% block table %}
+            {% endblock table %}
+        </table>
+
+    </div>
+    {% if title %} <h2 class="bg-info text-center"> {{ title }} </h2>{% endif %}
+    <div class="col-lg-8">
+        {% block content %}{% endblock content %}
+
+        {% if form_get %}
+            <form action="{{ request.path }}" method="get">
+                {#       TODO     {% csrf_token %}#}
+                {{ form_get.as_p }}
+                <input class='btn btn-info' type="submit" value="Ok"/>
+            </form>
+        {% endif %}
+
+        {% if form_post %}
+            <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                {{ form_post.as_p }}
+                <input class='btn btn-info' type="submit" value="Ok"/>
+            </form>
+        {% endif %}
+
+
+    </div>
+    <div class="col-lg-4">
+        {% block sidebar %}{% endblock sidebar %}
+    </div>
+
+
+
+{% endblock full_content %}
+</div>
+</div>
+
+
+<script src="{{ STATIC_URL }}core/js/jquery-2.1.4.min.js"></script>
+<script src="{{ STATIC_URL }}core/bootstrap/js/bootstrap.min.js"></script>
+
+{#<script src="{{ STATIC_URL }}core/navbar/js/jquery.js"></script>#}
+<script src="{{ STATIC_URL }}core/navbar/js/custom.js"></script>
+
+{% block js %}
+     <script>
+  $(function(){
+    $('form.uniForm').uniform();
+  });
+</script>
+{% endblock js %}
+
+
+  <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Сделано с душою &copy;</p>
+      </div>
+    </footer>
+
+{#<footer style="background-color: #f5f5f5; min-height: 60px">#}
+{#    <div class="container drop-shadow">#}
+{#<div class="container">#}
+{#    <div class="container">#}
+{#        copypasta &copy;#}
+{#    </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</footer>#}
+
+
+</body>
+</html>

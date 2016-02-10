@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+    <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <div class="form-group">
+                       Аватар <input name="files" type="file" >
+                    </div>
+
+                <input class='btn btn-info' type="submit" value="Ok"/>
+            </form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block full_content %}
+    {% for user in object_list %}
+        {{ user.username }}
+        {{ user.f_name }}
+        {{ user.l_name }}
+        {% if user.avatar %}
+            <img class="center-block " align="left" src="{{ user.avatar.url }}" height="150" width="100">
+        {% endif %}
+        <hr>
+    {% endfor %}
+{% endblock %}

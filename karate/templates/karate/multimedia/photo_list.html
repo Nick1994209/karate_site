@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block full_content %}
+
+    <br>
+    {% if user.is_authenticated %}
+        <a href="{% url 'photo_album_delete' album_pk %}" class="btn-danger">Удалить альбом</a>
+
+{#        <a>Добавить фотографии</a>#}
+
+        <form method="POST" action={% url 'photo_add' album_pk %} enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <input name="files" type="file" multiple="multiple">
+            </div>
+            <input type="submit" class="btn btn-success" value="Добавить">
+        </form>
+
+        <br>
+    {% endif %}
+
+    {% for photo in object_list %}
+
+        <a  href="{{ photo.image.url }}">
+	<img class=" img-rounded" src="{{ photo.image.url }}" height="100" width="100" alt="" />
+
+</a>
+{% endfor %}
+<hr>
+{#        <img src="{{ photo.image.url }}">#}
+
+     <span class="step-links">
+
+
+    <div class="pagination">
+        <ul class="pager">
+
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">Предыдущая страница</a></li>
+
+            {% endif %}
+
+            <span class="current">
+                <li> Страница {{ page_obj.number }} из {{ paginator.num_pages }}.</li>
+
+            </span>
+
+
+
+            {% if page_obj.has_next %}
+                 <li>  <a href="?page={{ page_obj.next_page_number }}">Следующая</a>.</li>
+
+            {% endif %}
+         </ul>
+    </div>
+        </span>
+{% endblock %}
+
+   {% block js %}
+            <script>
+            </script>
+        {% endblock %}
