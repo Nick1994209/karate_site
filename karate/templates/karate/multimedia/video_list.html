@@ -3,13 +3,16 @@
 {% block full_screan %}
 
     {% if user.is_authenticated %}
-        <a>Добавить видео</a>
+        <a href="/admin/karate/videos/add/">Добавить видео</a>
+        <h4>(переходим на видев ютубе -> жмем кнопку поделиться -> выбираем HTML код)</h4><br>
+         <h5> width="400" height="280" - желательно </h5>
         <hr>
     {% endif %}
 
     {% for video in object_list %}
         {{ video.href }}
         {{ video.name }}
+        <br>
     {% endfor %}
 
 
