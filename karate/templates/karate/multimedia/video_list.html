@@ -10,8 +10,8 @@
     {% endif %}
 
     {% for video in object_list %}
-        {{ video.href }}
-        {{ video.name }}
+        {{ video.href|safe }}
+        <h4>{{ video.name }}</h4>
         <br>
     {% endfor %}
 
