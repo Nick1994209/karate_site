@@ -23,14 +23,12 @@
         <br>
     {% endif %}
 
-    {% for photo in object_list %}
 
        {% for photo in object_list %}
         <a rel="gallery" class="photo" href="{{ photo.image.url }}">
             <img class=" img-rounded" src="{{ photo.image.url }}" height="100" width="100" alt="" />
         </a>
         {% endfor %}
-{% endfor %}
 <hr>
 {#        <img src="{{ photo.image.url }}">#}
 
