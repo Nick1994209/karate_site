@@ -80,7 +80,7 @@ class Photo(models.Model):
 
 class Videos(models.Model):
     name = models.CharField(max_length=255, blank=True, verbose_name='Название')
-    href = models.URLField(verbose_name='Урл')
+    href = models.CharField(max_length=255, verbose_name='Урл')
     dc = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
 
     class Meta:
