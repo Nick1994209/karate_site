@@ -25,10 +25,11 @@
 
     {% for photo in object_list %}
 
-        <a  href="{{ photo.image.url }}">
-	<img class=" img-rounded" src="{{ photo.image.url }}" height="100" width="100" alt="" />
-
-</a>
+       {% for photo in object_list %}
+        <a rel="gallery" class="photo" href="{{ photo.image.url }}">
+            <img class=" img-rounded" src="{{ photo.image.url }}" height="100" width="100" alt="" />
+        </a>
+        {% endfor %}
 {% endfor %}
 <hr>
 {#        <img src="{{ photo.image.url }}">#}
@@ -60,7 +61,39 @@
         </span>
 {% endblock %}
 
-   {% block js %}
-            <script>
-            </script>
-        {% endblock %}
+{% block js %}
+
+       <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}core/fancyBox/jquery.fancybox.css?v=2.1.5" media="screen" />
+       <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}core/fancyBox/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+       <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}core/fancyBox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+
+
+       <script type="text/javascript" src="{{ STATIC_URL }}core/fancyBox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+       <script type="text/javascript" src="{{ STATIC_URL }}core/fancyBox/jquery.fancybox.js?v=2.1.5"></script>
+       <script type="text/javascript" src="{{ STATIC_URL }}core/fancyBox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+       <script type="text/javascript" src="{{ STATIC_URL }}core/fancyBox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+       <script type="text/javascript" src="{{ STATIC_URL }}core/fancyBox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+    <script type="text/javascript">
+        console.log('hello');
+        $(document).ready(function(){
+            $(".photo").fancybox();
+        });
+
+         </script>
+
+
+       <style type="text/css">
+           .gallery img{
+             /* внешние отступы картинок */
+                margin:5px;
+             /* рамка картинок */
+                border:2px solid #ffffff;
+            }
+            a.photo:hover img{
+             /* изменение цвета рамки при наведении на картинку */
+                border:2px solid #7e5a25;
+            }
+       </style>
+{% endblock %}
