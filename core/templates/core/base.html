@@ -8,6 +8,7 @@
     <link href="{{ STATIC_URL }}core/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="{{ STATIC_URL }}core/css/main.css" rel="stylesheet" type="text/css">
 
+    <link rel="shortcut icon" href="{{ STATIC_URL }}core/images/stock-illustration-karate.jpg" type="image/jpg">
     {% block head %}{% endblock head %}
 
 </head>
@@ -19,7 +20,7 @@
             <nav class="navbar navbar-custom">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="#"><img src="{{ STATIC_URL }}core/images/karate-logo.svg" id="logo"></a>
+                        <a href="#"><img class="icons--gradient" src="{{ STATIC_URL }}core/images/karate-logo.svg" id="logo"></a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                 data-target="#menu" aria-expanded="false">
                             <span class="sr-only">Открыть меню</span>
@@ -144,5 +145,13 @@
 
 {% block js %}
 {% endblock %}
+
+<style type="text/css">
+
+    .icons--gradient .icon {
+      stroke-width: 3;
+      stroke: url(#stripes);
+      }
+</style>
 </body>
 </html>

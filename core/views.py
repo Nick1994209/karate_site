@@ -9,7 +9,7 @@ from karate.models import PlanOfEvents, Articles
 def index(request):
     c = {}
     yesterday = datetime.date.today() - datetime.timedelta(days=1)
-    events = PlanOfEvents.objects.filter(date__gte=yesterday).order_by('date')
+    events = PlanOfEvents.objects.order_by('date').filter(date__gte=yesterday)
     if events:
         c['events'] = events[0]
 

@@ -1,9 +1,37 @@
 {% extends 'core/base.html' %}
 
-{% block full_content %}
-    <br>
-    Дополнительная ифнормация
-    <br>
+{% block full_screan %}
+     <br>
+            <h1>Дополнительная ифнормация</h1>
+            <br>
+    <div class="row">
+        <div class="col-lg-6">
+
+            <h3>Тренер:</h3>
+            <h4>Александр Катенев</h4>
+            <br>
+            <h4>Номер телефона: </h4> <h4> *********</h4>
+        </div>
+        <div class="col-lg-6">
+            <img alt="Добро пожаловать" class="img-thumbnail img-responsive" src="{{ STATIC_URL }}core/images/Katenev.jpg">
+        </div>
+    </div>
+    <h3> Время занятий:</h3>
+    <table class="table  table-responsive table-bordered table-hover">
+        <tr>
+            <td>Понедельник</td>
+            <td>17-19</td>
+        </tr>
+        <tr>
+            <td>Среда</td>
+            <td>17-19</td>
+        </tr>
+        <tr>
+            <td>Пятница</td>
+            <td>17-19</td>
+        </tr>
+    </table>
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
