@@ -70,7 +70,7 @@
 </header>
 
 {#<div class="container drop-shadow">#}
-<div class="container drop-shadow">
+<div id="background" class="container drop-shadow">
     {% block full_content %}
         {% if title %} <h2 class="bg-info text-center"> {{ title }}</h2><br>{% endif %}
 
@@ -139,6 +139,15 @@
         <p class="text-muted">Сделано с душою &copy;</p>
     </div>
 </footer>
+
+<style>
+body {
+    background-color: #300000  ;
+}
+    #background {
+        background-color: #FFFFFF ;
+    }
+</style>
 
 <script src="{{ STATIC_URL }}core/js/jquery-2.1.4.min.js"></script>
 <script src="{{ STATIC_URL }}core/bootstrap/js/bootstrap.min.js"></script>
