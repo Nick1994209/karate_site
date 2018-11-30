@@ -2,7 +2,8 @@
 import datetime
 
 from django.shortcuts import render
-from karate.models import PlanOfEvents, Articles
+
+from karate.models import Articles, PlanOfEvents
 
 
 def additionally(request):

@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('karate.views',
     url(r'^articles/$', 'articles.article_list_view', name='article_list'),
@@ -8,8 +8,6 @@ urlpatterns = patterns('karate.views',
     url(r'^articles/create/$', 'articles.article_create', name='article_create'),
     url(r'^articles/(?P<pk>[0-9]+)/update/$', 'articles.article_update', name='article_update'),
     url(r'^articles/create/$', 'articles.article_create', name='article_create'),
-
-    # url(r'^people/$', 'multimedia.people_list_view', name='people_list'),
 
     url(r'^multimedia/photo_album/$', 'multimedia.photo_album_list_view', name='photo_album_list'),
     url(r'^multimedia/photo_album/create/$', 'multimedia.photo_album_create', name='photo_album_create'),
@@ -26,5 +24,5 @@ urlpatterns = patterns('karate.views',
     url(r'^events/(?P<pk>[0-9]+)/$', 'plan_of_events.plan_of_events_update', name='plan_of_events_update'),
     url(r'^events/(?P<pk>[0-9]+)/delete/$', 'plan_of_events.plan_of_events_delete', name='plan_of_events_delete'),
 
-    url(r'^additionly/$', 'other.additionally', name='additionally'), #TODO add contact
+    url(r'^additionly/$', 'other.additionally', name='additionally'),
     )

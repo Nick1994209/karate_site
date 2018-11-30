@@ -1,8 +1,9 @@
 from django.contrib import admin
 
+from core.models import User  # , GroupUsers
+
 # Register your models here.
 
-from core.models import User #, GroupUsers
 
 
 class UserAdmin(admin.ModelAdmin):

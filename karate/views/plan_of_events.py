@@ -2,13 +2,15 @@
 # from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-
 from django.shortcuts import render
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
 from django.views.generic.detail import SingleObjectMixin
+
 from core.models import User
-from karate.models import Articles, Photo, PhotoAlbum, PlanOfEvents
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from karate import forms
+from karate.models import Articles, Photo, PhotoAlbum, PlanOfEvents
+
 
 class LoginRequiredMixin(object): #TODO для более приятного добавления
     @classmethod
@@ -42,7 +44,7 @@ class PlanOfEventsView(LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         c = super(PlanOfEventsView, self).get_context_data()
         c['form_post'] = self.form_class
-        print type(self.form_class)
+        print(type(self.form_class))
         return c
 
 

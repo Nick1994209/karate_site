@@ -3,7 +3,8 @@
 {% block full_content %}
     <div class="row">
         <div class="jumbotron">
-            <h1 class="text-primary text-center" id="karate_title"><kbd>Karate Серпухов Shotocan</kbd></h1>
+            <h1 class="text-primary text-center" id="karate_title"><kbd>Karate Серпухов
+                Shotocan</kbd></h1>
             <h2 class="text-primary text-center"> Главная информация </h2>
         </div>
     </div>
@@ -19,41 +20,35 @@
 
         </div>
         <div class="col-xs-6">
-            <h3>Каратэ</h3> – это японское боевое искусство защиты без применения оружия. В Мире существует много стилей и вариаций этого боевого искусства.
+            <h3>Каратэ</h3> – это японское боевое искусство защиты без применения оружия. В Мире
+            существует много стилей и вариаций этого боевого искусства.
             <blockquote>
                 -"Открытое лицо приятно для удара"-"Не закрывай глаза-пропустишь самое интересное"
                 <footer>Умные советы</footer>
             </blockquote>
 
         </div>
-        {#        <div class="col-xs-6">#}
-        {#             <img class="img-responsive" src="http://placehold.it/600x300">#}
-        {#        </div>#}
     </div>
     <hr/>
-    <div class="row">
 
+    <div class="row">
         <div class="col-xs-4">
             <h4>Как до нас добраться:</h4>
         </div>
         <div class="col-xs-8">
-            <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SvMQx0A7wdlh72MKCY34e_9D21a0clhq&width=500&height=400&lang=ru_RU&sourceType=constructor"></script>
+            <script type="text/javascript" charset="utf-8"
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SvMQx0A7wdlh72MKCY34e_9D21a0clhq&width=500&height=400&lang=ru_RU&sourceType=constructor"></script>
         </div>
     </div>
-    <div class="row">
-        {#        <div class="col-xs-3"><img class="img-responsive" src="{{ STATIC_URL }}core/images/karta_pinguins.jpg"></div>#}
-        {#         <div class="col-xs-3"><img class="img-responsive" src="http://cs314217.vk.me/v314217044/616/JclLsTEvoEY.jpg"></div>#}
 
-
-    </div>
     <hr/>
-
 {% endblock %}
 
 {% block sidebar %}
     <div class="row">
         <div>
-            <a href="{% url 'plan_of_events_list' %}"><h4 class="text-info">Ближайшее мероприятие:</h4></a>
+            <a href="{% url 'plan_of_events_list' %}"><h4 class="text-info">Ближайшее
+                мероприятие:</h4></a>
             {% if events %}
                 <a href="{% url 'plan_of_events_list' %}">{{ events.name }}</a>
             {% else %}
@@ -62,14 +57,22 @@
             <hr>
 
             {% if last_article %}
-                <a href="{% url 'article_list' %}"><h4 class="text-warning">Наша последняя статья</h4></a>
+                <a href="{% url 'article_list' %}"><h4 class="text-warning">Наша последняя
+                    статья</h4></a>
                 <a href="{% url 'article-detail' last_article.pk %}">{{ last_article.name }}</a>
             {% endif %}
 
             <h4 class="text-danger"> Немного на заметку: </h4>
-            Как метод самозащиты Шотокан каратэ-до не знает себе равных. Его техника и практическое применение отличаются четкостью, мощью, быстротой и эффективностью. Каждый может извлечь пользу из этого аспекта боевого искусства, так как каратэ-до дает нам шанс стать немного лучше, усовершенствовать свой характер.
+            Как метод самозащиты Шотокан каратэ-до не знает себе равных. Его техника и практическое
+            применение отличаются четкостью, мощью, быстротой и эффективностью. Каждый может извлечь
+            пользу из этого аспекта боевого искусства, так как каратэ-до дает нам шанс стать немного
+            лучше, усовершенствовать свой характер.
             <br><br>
-Как бы то ни было, но мы уверенны, что одной из важнейших причин всемирной популярности Шотокан каратэ-до является его доступность. Им фактически , может заниматься любой человек со средним здоровьем, независимо от пола и возраста. Жёсткие и грубые падения в дзюдо,удары в полный контакт в голову и корпус в контактных единоборствах не подходят для детей младшего возраста, а также не молодых людей.
+            Как бы то ни было, но мы уверенны, что одной из важнейших причин всемирной популярности
+            Шотокан каратэ-до является его доступность. Им фактически , может заниматься любой
+            человек со средним здоровьем, независимо от пола и возраста. Жёсткие и грубые падения в
+            дзюдо,удары в полный контакт в голову и корпус в контактных единоборствах не подходят
+            для детей младшего возраста, а также не молодых людей.
         </div>
 
     </div>
@@ -84,13 +87,19 @@
             -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
             animation: mymove 5s infinite;
         }
+
         /* Chrome, Safari, Opera */
         @-webkit-keyframes mymove {
-            50% {box-shadow: 10px 15px 20px blue;}
+            50% {
+                box-shadow: 10px 15px 20px blue;
+            }
         }
+
         /* Standard syntax */
         @keyframes mymove {
-            50% {box-shadow: 5px 10px 15px blue;}
+            50% {
+                box-shadow: 5px 10px 15px blue;
+            }
         }
 
         #changeColor {
@@ -103,12 +112,16 @@
 
         /* Chrome, Safari, Opera */
         @-webkit-keyframes mymove {
-            50% {color: blue;}
+            50% {
+                color: blue;
+            }
         }
 
         /* Standard syntax */
         @keyframes mymove {
-            50% {color: blue;}
+            50% {
+                color: blue;
+            }
         }
     </style>
 {% endblock head %}

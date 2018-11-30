@@ -3,13 +3,13 @@
 from django.contrib.auth.decorators import login_required
 from django.core.files.base import File
 from django.core.urlresolvers import reverse
-
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
+from django.views.generic import CreateView, DeleteView, DetailView, ListView
 from django.views.generic.detail import SingleObjectMixin
+
 from core.models import User
-from karate.models import Articles, Photo, PhotoAlbum, Videos
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from karate import forms
+from karate.models import Articles, Photo, PhotoAlbum, Videos
 
 
 class LoginRequiredMixin(object): #TODO для более приятного добавления
@@ -41,11 +41,11 @@ def photo_album_create(request):
         return redirect(photo_album_list_view)
 
     if form.is_valid():
-        print request.POST
+        print(request.POST)
         if form.cleaned_data['name']:
             photo_album = PhotoAlbum.objects.create(name=form.cleaned_data['name'])
         if request.FILES.get('files'):
-            print request.FILES.get('files')
+            print(request.FILES.get('files'))
             image = request.FILES.get('files')
             photo_album.image=File(image)
             photo_album.save()

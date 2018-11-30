@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 from __future__ import unicode_literals
+
 from django.db import models
 
 
@@ -13,7 +14,7 @@ class Articles(models.Model):
         verbose_name = 'Статью'
         verbose_name_plural = 'Статьи'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -23,9 +24,9 @@ class PlanOfEvents(models.Model):
     sity = models.CharField(max_length=100, verbose_name='Город')
     place = models.CharField(max_length=100, blank=True, verbose_name='Место провидения')
     time = models.TimeField(blank=True, verbose_name='Время начала')
-    additionally = models.CharField(max_length=255, blank=True, verbose_name='Дополнительная информация')
+    additionally = models.CharField(max_length=255, blank=True,
+                                    verbose_name='Дополнительная информация')
 
-#http://www.kyokushinkarate.ru/plan-meropriyatiy/
     class Meta:
         verbose_name = 'Мероприятия'
         verbose_name_plural = 'Мероприятия'
@@ -40,7 +41,7 @@ class PhotoAlbum(models.Model):
         verbose_name = 'Фото альбом'
         verbose_name_plural = 'Фото альбомы'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def delete(self, *args, **kwargs):
@@ -87,5 +88,5 @@ class Videos(models.Model):
         verbose_name = 'Видео'
         verbose_name_plural = 'Видео'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name

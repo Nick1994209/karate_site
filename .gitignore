@@ -9,3 +9,4 @@ project/media/*
 image-files/*
 core/migrations/*
 media/*
+db.sqlite3

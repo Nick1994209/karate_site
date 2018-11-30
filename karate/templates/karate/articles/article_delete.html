@@ -10,7 +10,7 @@
         <form class="form-horizontal" method="POST">{% csrf_token %}
             {% block form_content %}{% endblock %}
 
-            <a class="btn" href="{{ cancel_url|default:'..'}}">
+            <a class="btn" href="{{ cancel_url|default:'..' }}">
                 <i class="icon icon-arrow-left"></i>
                 Отмена
             </a>

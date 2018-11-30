@@ -1,13 +1,14 @@
 # -*-coding:utf8 -*-
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-
 from django.shortcuts import render
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
 from django.views.generic.detail import SingleObjectMixin
+
 from core.models import User
-from karate.models import Articles
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from karate import forms
+from karate.models import Articles
 
 
 class LoginRequiredMixin(object): #TODO для более приятного добавления

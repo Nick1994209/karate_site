@@ -1,7 +1,6 @@
 {% extends 'core/base.html' %}
 
 {% block full_screan %}
-
     {% if user.is_authenticated %}
         <a href="{% url 'photo_album_create' %}" class="btn btn-default">Создать альбом</a>
         <br>
@@ -10,33 +9,33 @@
 
     {% for album in object_list %}
         <div>{{ album.name }}
-        <a href="{% url 'photo_list' album.pk %}"> <img class="img-thumbnail img-rounded"  height="100" width="100" src="{{ album.image.url }}"></a>
-{# img-responsive #}
+            <a href="{% url 'photo_list' album.pk %}">
+                <img class="img-thumbnail img-rounded"
+                     height="100" width="100"
+                     src="{{ album.image.url }}">
+            </a>
         </div>
     {% endfor %}
 
-     <span class="step-links">
+    <span class="step-links">
+        <div class="pagination">
+            <ul class="pager">
 
+                {% if page_obj.has_previous %}
+                    <li>
+                        <a href="?page={{ page_obj.previous_page_number }}">Предыдущая страница</a>
+                    </li>
+                {% endif %}
 
-    <div class="pagination">
-        <ul class="pager">
+                <span class="current">
+                    <li> Страница {{ page_obj.number }} из {{ paginator.num_pages }}.</li>
+                </span>
 
-            {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}">Предыдущая страница</a></li>
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">Следующая</a>.</li>
+                {% endif %}
+             </ul>
+        </div>
+    </span>
 
-            {% endif %}
-
-            <span class="current">
-                <li> Страница {{ page_obj.number }} из {{ paginator.num_pages }}.</li>
-
-            </span>
-
-            {% if page_obj.has_next %}
-                 <li>  <a href="?page={{ page_obj.next_page_number }}">Следующая</a>.</li>
-
-            {% endif %}
-         </ul>
-    </div>
-        </span>
-    
 {% endblock %}

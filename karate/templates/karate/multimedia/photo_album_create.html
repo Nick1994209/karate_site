@@ -1,25 +1,23 @@
 {% extends 'core/base.html' %}
 
 {% block full_screan %}
-
     <br>
+    <form enctype="multipart/form-data" class="uniForm" action="{{ request.path }}" method="post">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        <div class="form-group">
+            Аватар <input name="files" type="file">
+        </div>
 
-     <form enctype="multipart/form-data" class="uniForm" action="{{ request.path }}" method="post">
-                {% csrf_token %}
-         {% load crispy_forms_tags %}
-                {{ form|crispy }}
-                 <div class="form-group">
-                       Аватар <input name="files" type="file" >
-                    </div>
-
-                <input class='btn btn-info' type="submit" value="Создать"/>
-            </form>
+        <input class='btn btn-info' type="submit" value="Создать"/>
+    </form>
 {% endblock %}
 
 {% block js %}
-     <script>
-  $(function(){
-    $('form.uniForm').uniform();
-  });
-</script>
+    <script>
+      $(function () {
+        $('form.uniForm').uniform();
+      });
+    </script>
 {% endblock %}

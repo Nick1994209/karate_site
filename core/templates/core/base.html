@@ -8,10 +8,23 @@
     <link href="{{ STATIC_URL }}core/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="{{ STATIC_URL }}core/css/main.css" rel="stylesheet" type="text/css">
 
-    <link rel="shortcut icon" href="{{ STATIC_URL }}core/images/stock-illustration-karate.jpg" type="image/jpg">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}core/images/stock-illustration-karate.jpg"
+          type="image/jpg">
     {% block head %}{% endblock head %}
-
 </head>
+
+<style>
+    body {
+        background-color: #300000;
+    }
+    #background {
+        background-color: #FFFFFF;
+    }
+    .icons--gradient .icon {
+        stroke-width: 3;
+        stroke: url(#stripes);
+    }
+</style>
 
 <body>
 <header>
@@ -20,13 +33,14 @@
             <nav class="navbar navbar-custom">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="#"><img class="icons--gradient" src="{{ STATIC_URL }}core/images/karate-logo.svg" id="logo"></a>
+                        <a href="#">
+                            <img class="icons--gradient"
+                                 src="{{ STATIC_URL }}core/images/karate-logo.svg"
+                                 id="logo">
+                        </a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                 data-target="#menu" aria-expanded="false">
                             <span class="sr-only">Открыть меню</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="menu">
@@ -45,21 +59,17 @@
                             <li><a href="{% url 'plan_of_events_list' %}">Мероприятия</a></li>
                             <li><a href="{% url 'additionally' %}">Дополнительно</a></li>
                             {% if user.is_authenticated %}
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                    {{ user.username }}
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url 'photo_album_list' %}"> Информация по пользователю</a></li>
-                                    <li><a href="{% url 'logout' %}">Выход</a></li>
-                                </ul>
-                            </li>
-{#                                <li><li class="dropdown active"><a href="{% url 'user_detail' %}"><h4>{{ user.username }}</h4></a></li>#}
-{#                                    {% if user.avatar %}#}
-{#                                        <li><img class="center-block" src="{{ user.avatar.url }}" height="5%" ></li>#}
-{#                                    {% endif %}#}
-{#                                    <li class="dropdown active"><a href="{% url 'logout' %}"><h4>Выход</h4></a> </li></li>#}
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        {{ user.username }}
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'photo_album_list' %}"> Информация по
+                                            пользователю</a></li>
+                                        <li><a href="{% url 'logout' %}">Выход</a></li>
+                                    </ul>
+                                </li>
                             {% endif %}
                         </ul>
                     </div>
@@ -69,12 +79,9 @@
     </div>
 </header>
 
-{#<div class="container drop-shadow">#}
 <div id="background" class="container drop-shadow">
     {% block full_content %}
         {% if title %} <h2 class="bg-info text-center"> {{ title }}</h2><br>{% endif %}
-
-
 
         <div class="col-lg-12">
             <table class="table  table-responsive table-bordered table-hover">
@@ -82,14 +89,15 @@
                 {% endblock table %}
             </table>
             {% block full_screan %}
-        {% endblock %}
+            {% endblock %}
         </div>
         <div class="col-lg-8">
             <article>
                 {% block content %}{% endblock content %}
 
                 {% if form_get %}
-                    <form class="form-horizontal" role="form" action="{{ request.path }}" method="get">
+                    <form class="form-horizontal" role="form" action="{{ request.path }}"
+                          method="get">
                         <div class="form-group">
                             {{ form_get.as_p }}
                             <input class='btn btn-info' type="submit" value="Ok"/>
@@ -117,20 +125,12 @@
 
     {% endblock full_content %}
 </div>
-{#</div>#}
 
-<!-- note that there's also blue.uni-form.css and dark.uni-form.css available if you want to try changing defaults up -->
-{#<link rel="stylesheet" href="{{ STATIC_URL }}uni_form/uni-form.css" type="text/css" />#}
-{#<link rel="stylesheet" href="{{ STATIC_URL }}uni_form/default.uni-form.css" type="text/css" />#}
-{#<!-- uni-form JS library, optional -->#}
-{#<script src="{{ STATIC_URL }}uni_form/uni-form.jquery.js" type="text/javascript"></script>#}
-
-{#{% crispy %}#}
 {% load crispy_forms_tags %}
 <script>
-    $(function () {
-        $('form.uniForm').uniform();
-    });
+  $(function () {
+    $('form.uniForm').uniform();
+  });
 </script>
 
 
@@ -140,27 +140,11 @@
     </div>
 </footer>
 
-<style>
-body {
-    background-color: #300000  ;
-}
-    #background {
-        background-color: #FFFFFF ;
-    }
-</style>
 
 <script src="{{ STATIC_URL }}core/js/jquery-2.1.4.min.js"></script>
 <script src="{{ STATIC_URL }}core/bootstrap/js/bootstrap.min.js"></script>
 
 {% block js %}
 {% endblock %}
-
-<style type="text/css">
-
-    .icons--gradient .icon {
-      stroke-width: 3;
-      stroke: url(#stripes);
-      }
-</style>
 </body>
 </html>

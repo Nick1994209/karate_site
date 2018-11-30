@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
-
-from .models import Articles, Photo, PhotoAlbum, PlanOfEvents, Videos  #, GroupUsers
+from .models import (Articles, Photo, PhotoAlbum, PlanOfEvents,  # , GroupUsers
+                     Videos)
 
 
 class ArticlesAdmin(admin.ModelAdmin):
@@ -34,6 +33,4 @@ admin.site.register(Articles, ArticlesAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(PhotoAlbum, PhotoAlbumAdmin)
 admin.site.register(PlanOfEvents, PlanOfEventsAdmin)
-# admin.site.register(Videos,ViedeoAdmin)
 admin.site.register(Videos)
-
