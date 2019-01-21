@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns('karate.views',
-    url(r'^articles/$', 'articles.article_list_view', name='article_list'),
+    url(r'^articles/$', 'articles.lists_articles', name='article_list'),
     url(r'^articles/(?P<pk>[0-9]+)/$', 'articles.article_detail_view', name='article-detail'),
     url(r'^articles/(?P<pk>[0-9]+)/delete/$', 'articles.article_delete', name='article_delete'),
 
@@ -25,4 +25,4 @@ urlpatterns = patterns('karate.views',
     url(r'^events/(?P<pk>[0-9]+)/delete/$', 'plan_of_events.plan_of_events_delete', name='plan_of_events_delete'),
 
     url(r'^additionly/$', 'other.additionally', name='additionally'),
-    )
+)

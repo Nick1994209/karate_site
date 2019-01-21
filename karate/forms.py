@@ -13,14 +13,12 @@ class ArticleCreate(forms.ModelForm):
 
 
 class PhotoAlbumCreate(forms.ModelForm):
-
     class Meta:
         model = PhotoAlbum
         fields = ('name',)
 
 
 class PlanOfEventsCreteForm(forms.ModelForm):
-
     class Meta:
         model = PlanOfEvents
         exclude = ()

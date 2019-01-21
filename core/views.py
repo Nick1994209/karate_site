@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from karate.models import Articles, PlanOfEvents
@@ -17,3 +18,10 @@ def index(request):
         c['last_article'] = last_article[0]
 
     return render(request, 'core/index.html', c)
+
+
+class LoginRequiredMixin(object):
+    @classmethod
+    def as_view(cls, **kwargs):
+        view = super(LoginRequiredMixin, cls).as_view(**kwargs)
+        return login_required(view)
